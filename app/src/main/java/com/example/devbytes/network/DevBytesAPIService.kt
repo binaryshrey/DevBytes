@@ -21,7 +21,7 @@ private val retrofit = Retrofit.Builder()
 
 interface DevBytesAPIService{
     @GET("devbytes.json")
-    fun getProperties() : List<DevBytesEntity>
+    fun getProperties() : List<DevBytesProperty>
 }
 
 object DevBytesAPI {
