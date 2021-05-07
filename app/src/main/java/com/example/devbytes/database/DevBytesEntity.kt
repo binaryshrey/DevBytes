@@ -3,7 +3,7 @@ package com.example.devbytes.database
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "dev_bytes_video_table")
 data class DevBytesEntity(
     @PrimaryKey(autoGenerate = true)
     val url : String,
