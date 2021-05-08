@@ -18,13 +18,13 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface DevBytesAPIService{
+interface DevBytesAPIService {
     @GET("devbytes.json")
-    suspend fun getProperties() : DevBytesProperty
+    suspend fun getProperties(): DevBytesProperty
 }
 
 object DevBytesAPI {
-    val retrofitService : DevBytesAPIService by lazy {
+    val retrofitService: DevBytesAPIService by lazy {
         retrofit.create(DevBytesAPIService::class.java)
     }
 }

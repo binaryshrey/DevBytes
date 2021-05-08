@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="devBytesViewModel"
+            type="com.example.devbytes.ui.devbytes.DevBytesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

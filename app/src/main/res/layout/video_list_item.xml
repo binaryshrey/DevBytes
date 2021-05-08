@@ -4,79 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="property"
-            type="com.example.devbytes.network.DevBytesProperty" />
+            name="model"
+            type="com.example.devbytes.domain.Model" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingBottom="@dimen/dimen_8"
+        app:cardCornerRadius="@dimen/dimen_0"
+        app:cardElevation="@dimen/dimen_8"
+        app:contentPaddingBottom="@dimen/dimen_16">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardview"
-            android:layout_width="@dimen/dimen_0"
-            android:layout_height="@dimen/dimen_406"
-            android:layout_marginTop="@dimen/dimen_4"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingBottom="8dp"
-            app:cardCornerRadius="@dimen/dimen_0"
-            app:cardElevation="@dimen/dimen_8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/thumbnail_imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_320"
+                android:adjustViewBounds="false"
+                android:contentDescription="@string/thumbnail"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                app:imageUrl="@{model.thumbnail}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-                <ImageView
-                    android:id="@+id/thumbnail_imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dimen_320"
-                    android:contentDescription="@string/thumbnail"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:contentDescription="@string/play"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/thumbnail_imageView"
+                app:srcCompat="@drawable/ic_baseline_play_circle_outline_24" />
 
-                <ImageView
-                    android:id="@+id/play"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16"
-                    android:layout_marginTop="@dimen/dimen_16"
-                    android:contentDescription="@string/play"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/thumbnail_imageView"
-                    app:srcCompat="@drawable/ic_baseline_play_circle_outline_24" />
+            <TextView
+                android:id="@+id/title_textView"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginEnd="@dimen/dimen_16"
+                android:textSize="@dimen/text_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/play"
+                app:layout_constraintTop_toTopOf="@+id/play"
+                app:title="@{model.title}"
+                tools:text="Video Title" />
 
-                <TextView
-                    android:id="@+id/title_textView"
-                    android:layout_width="@dimen/dimen_0"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16"
-                    android:layout_marginEnd="@dimen/dimen_16"
-                    android:textSize="@dimen/text_18"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/play"
-                    app:layout_constraintTop_toTopOf="@+id/play"
-                    tools:text="Video Title" />
-
-                <TextView
-                    android:id="@+id/description_textView"
-                    android:layout_width="@dimen/dimen_0"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16"
-                    android:layout_marginTop="@dimen/dimen_16"
-                    android:layout_marginEnd="@dimen/dimen_16"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/play"
-                    tools:text="Description" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/description_textView"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_16"
+                app:description="@{model.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/play"
+                tools:text="Description" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
