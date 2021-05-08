@@ -2,6 +2,7 @@ package com.example.devbytes.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -20,7 +21,7 @@ private val retrofit = Retrofit.Builder()
 
 interface DevBytesAPIService {
     @GET("devbytes.json")
-    suspend fun getProperties(): DevBytesProperty
+    suspend fun getProperties(): Deferred<DevBytesProperty>
 }
 
 object DevBytesAPI {
