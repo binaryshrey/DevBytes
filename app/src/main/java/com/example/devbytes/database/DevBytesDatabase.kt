@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 abstract class DevBytesDatabase : RoomDatabase(){
 
     //Connects the database to the DAO.
-    abstract val databaseDao: DevBytesDao
+    abstract val databaseDao: DatabaseDao
 
     companion object {
         /**
@@ -50,7 +50,7 @@ abstract class DevBytesDatabase : RoomDatabase(){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         DevBytesDatabase::class.java,
-                        "sleep_history_database"
+                        "dev_bytes_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()
