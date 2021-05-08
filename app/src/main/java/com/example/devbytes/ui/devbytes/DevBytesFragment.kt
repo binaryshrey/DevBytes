@@ -18,6 +18,7 @@ class DevBytesFragment : Fragment() {
 
     private lateinit var binding: FragmentDevBytesBinding
     private lateinit var viewModel: DevBytesViewModel
+    private lateinit var viewModelFactory: DevBytesViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,9 @@ class DevBytesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dev_bytes, container, false)
-        viewModel = ViewModelProvider(this).get(DevBytesViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+        viewModelFactory = DevBytesViewModelFactory(application)
+        viewModel = ViewModelProvider(this,viewModelFactory).get(DevBytesViewModel::class.java)
         binding.devBytesViewModel = viewModel
 
         val adapter = DevBytesAdapter(ClickListener { it ->
@@ -36,9 +39,9 @@ class DevBytesFragment : Fragment() {
         })
         binding.listRV.adapter = adapter
 
-        viewModel.property.observe(viewLifecycleOwner, Observer {
+        viewModel.playlist.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.submitList(it.videos.toMutableList())
+                adapter.submitList(it.toMutableList())
             }
         })
 

@@ -37,7 +37,7 @@ abstract class DevBytesDatabase : RoomDatabase(){
          * argument in Kotlin.
          *
          */
-        fun getInstance(context: Context): DevBytesDatabase {
+        fun getDatabaseInstance(context: Context): DevBytesDatabase {
             // Multiple threads can ask for the database at the same time, ensure we only initialize
             // it once by using synchronized. Only one thread may enter a synchronized block at a
             // time.
