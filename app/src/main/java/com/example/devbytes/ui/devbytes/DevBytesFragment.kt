@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.example.devbytes.R
 import com.example.devbytes.databinding.FragmentDevBytesBinding
 
 class DevBytesFragment : Fragment() {
 
     private lateinit var binding : FragmentDevBytesBinding
+    private lateinit var viewModel: DevBytesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +21,8 @@ class DevBytesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_dev_bytes, container, false)
+
+        viewModel = ViewModelProvider(this).get(DevBytesViewModel::class.java)
 
         return binding.root
     }

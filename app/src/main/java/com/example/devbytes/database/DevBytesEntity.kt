@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "dev_bytes_video_table")
 data class DevBytesEntity(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val url : String,
     val title : String,
     val description : String,

@@ -1,13 +1,8 @@
 package com.example.devbytes.network
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import com.example.devbytes.domain.Models
+import com.squareup.moshi.JsonClass
 
-@Parcelize
-data class DevBytesProperty(
-    val url : String,
-    val title : String,
-    val description : String,
-    val updated : String,
-    val thumbnail : String
-) : Parcelable
+@JsonClass(generateAdapter = true)
+data class DevBytesProperty(val videos : List<Models>)
+
