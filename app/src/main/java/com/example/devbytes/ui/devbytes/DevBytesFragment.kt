@@ -1,9 +1,12 @@
 package com.example.devbytes.ui.devbytes
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -25,7 +28,12 @@ class DevBytesFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DevBytesViewModel::class.java)
         binding.devBytesViewModel = viewModel
 
-        val adapter = DevBytesAdapter()
+        val adapter = DevBytesAdapter(ClickListener { it ->
+            Toast.makeText(context, "${it.title}",Toast.LENGTH_SHORT).show()
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(it.url))
+            startActivity(intent)
+
+        })
         binding.listRV.adapter = adapter
 
         viewModel.property.observe(viewLifecycleOwner, Observer {

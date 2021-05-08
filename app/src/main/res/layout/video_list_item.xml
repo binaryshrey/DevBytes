@@ -8,17 +8,20 @@
         <variable
             name="model"
             type="com.example.devbytes.domain.Model" />
+
+        <variable
+            name="clickListener"
+            type="com.example.devbytes.ui.devbytes.ClickListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_8"
         android:layout_marginBottom="@dimen/dimen_16"
         android:clickable="true"
         android:focusable="true"
-        android:paddingBottom="@dimen/dimen_8"
+        android:onClick="@{() -> clickListener.onClick(model)}"
         app:cardCornerRadius="@dimen/dimen_0"
         app:cardElevation="@dimen/dimen_8"
         app:contentPaddingBottom="@dimen/dimen_16">
@@ -29,12 +32,11 @@
 
             <ImageView
                 android:id="@+id/thumbnail_imageView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_320"
-                android:adjustViewBounds="false"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/thumbnail"
-                android:cropToPadding="false"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 app:imageUrl="@{model.thumbnail}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
