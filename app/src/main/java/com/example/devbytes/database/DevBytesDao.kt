@@ -9,9 +9,9 @@ import androidx.room.Query
 interface DevBytesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(videos : DevBytesEntity)
+    fun insertAll(videos : DatabaseEntity)
 
     @Query("SELECT * FROM dev_bytes_video_table")
-    fun getVideos() : List<DevBytesEntity>
+    fun getVideos() : List<DatabaseEntity>
 
 }
