@@ -34,47 +34,47 @@ fun setDescription(videoDescription: TextView, description: String?) {
     }
 }
 
-//@BindingAdapter("progressStatus")
-//fun status(progressBar: ProgressBar, status : DevBytesViewModel.APIStatus?){
-//    when(status){
-//        DevBytesViewModel.APIStatus.LOADING ->{
-//            progressBar.visibility = View.VISIBLE
-//        }
-//        DevBytesViewModel.APIStatus.DONE -> {
-//            progressBar.visibility = View.INVISIBLE
-//        }
-//        DevBytesViewModel.APIStatus.FAILURE -> {
-//            progressBar.visibility = View.INVISIBLE
-//        }
-//    }
-//}
-//
-//@BindingAdapter("errorStatus")
-//fun errorStatus(errorTextView: TextView, status: DevBytesViewModel.APIStatus?) {
-//    when (status) {
-//        DevBytesViewModel.APIStatus.LOADING -> {
-//            errorTextView.visibility = View.INVISIBLE
-//        }
-//        DevBytesViewModel.APIStatus.DONE -> {
-//            errorTextView.visibility = View.INVISIBLE
-//        }
-//        DevBytesViewModel.APIStatus.FAILURE -> {
-//            errorTextView.visibility = View.VISIBLE
-//        }
-//    }
-//}
-//
-//@BindingAdapter("recyclerViewStatus")
-//fun recyclerViewStatus(recyclerView: RecyclerView, status: DevBytesViewModel.APIStatus?) {
-//    when (status) {
-//        DevBytesViewModel.APIStatus.LOADING -> {
-//            recyclerView.visibility = View.INVISIBLE
-//        }
-//        DevBytesViewModel.APIStatus.DONE -> {
-//            recyclerView.visibility = View.VISIBLE
-//        }
-//        DevBytesViewModel.APIStatus.FAILURE -> {
-//            recyclerView.visibility = View.INVISIBLE
-//        }
-//    }
-//}
+@BindingAdapter("progressStatus")
+fun status(progressBar: ProgressBar, status : DevBytesViewModel.APIStatus?){
+    when(status){
+        DevBytesViewModel.APIStatus.LOADING ->{
+            progressBar.visibility = View.VISIBLE
+        }
+        DevBytesViewModel.APIStatus.DONE -> {
+            progressBar.visibility = View.INVISIBLE
+        }
+        DevBytesViewModel.APIStatus.FAILURE -> {
+            progressBar.visibility = View.INVISIBLE
+        }
+    }
+}
+
+@BindingAdapter("errorStatus")
+fun errorStatus(errorTextView: TextView, status: DevBytesViewModel.APIStatus?) {
+    when (status) {
+        DevBytesViewModel.APIStatus.LOADING -> {
+            errorTextView.visibility = View.INVISIBLE
+        }
+        DevBytesViewModel.APIStatus.DONE -> {
+            errorTextView.visibility = View.INVISIBLE
+        }
+        DevBytesViewModel.APIStatus.FAILURE -> {
+            errorTextView.visibility = View.VISIBLE
+        }
+    }
+}
+
+@BindingAdapter("recyclerViewStatus")
+fun recyclerViewStatus(recyclerView: RecyclerView, status: DevBytesViewModel.APIStatus?) {
+    when (status) {
+        DevBytesViewModel.APIStatus.LOADING -> {
+            recyclerView.visibility = View.INVISIBLE
+        }
+        DevBytesViewModel.APIStatus.DONE -> {
+            recyclerView.visibility = View.VISIBLE
+        }
+        DevBytesViewModel.APIStatus.FAILURE -> {
+            recyclerView.visibility = View.INVISIBLE
+        }
+    }
+}

@@ -30,6 +30,7 @@ class DevBytesFragment : Fragment() {
         viewModelFactory = DevBytesViewModelFactory(application)
         viewModel = ViewModelProvider(this,viewModelFactory).get(DevBytesViewModel::class.java)
         binding.devBytesViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         val adapter = DevBytesAdapter(ClickListener { it ->
             Toast.makeText(context, "${it.title}",Toast.LENGTH_SHORT).show()

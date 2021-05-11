@@ -20,22 +20,14 @@ class Repository(private val database : DevBytesDatabase) {
         it.asDomainModel()
     }
 
-//    private val _status = MutableLiveData<DevBytesViewModel.APIStatus>()
-//    val status : LiveData<DevBytesViewModel.APIStatus>
-//        get() = _status
-
     suspend fun refreshVideos(){
         withContext(Dispatchers.IO){
-//            _status.value = DevBytesViewModel.APIStatus.LOADING
             try{
                 val playlist = DevBytesAPI.retrofitService.getProperties().await()
-//                _status.value = DevBytesViewModel.APIStatus.DONE
                 database.databaseDao.insertAll(*playlist.asDatabaseModel())
             }
             catch (e : Exception){
                 Log.i("Repository", "${e.message}")
-//                _status.value = DevBytesViewModel.APIStatus.FAILURE
-
             }
 
         }
